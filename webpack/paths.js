@@ -10,4 +10,5 @@ module.exports = {
   scssResources: resolve('src/styles/resources.scss'),
   publicFiles: resolve('public'),
   build: resolve('build'),
+  serviceWorker: resolve('src/sw.js'),
 };
