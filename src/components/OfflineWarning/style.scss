@@ -1,0 +1,12 @@
+.OfflineWarning {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  height: 30px;
+  padding: 0 10px;
+  border: 2px solid $primary;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  color: $primary;
+}

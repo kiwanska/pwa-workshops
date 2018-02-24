@@ -44,13 +44,6 @@ const fromCache = (request) => {
       })
 )};
 
-// self.addEventListener('fetch', event => {
-//   console.log('fetch');
-//   event.respondWith(fromNetwork(event.request, 400)
-//     .catch(() => fromCache(event.request)
-//   ));
-// });
-
 self.addEventListener("fetch", event => {
   const request = event.request;
 

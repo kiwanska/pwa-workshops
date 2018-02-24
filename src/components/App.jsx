@@ -8,15 +8,26 @@ import List from './List';
 import EmptyPage from './EmptyPage';
 import TabBar from './TabBar';
 import ItemShow from './ItemShow';
+import OfflineWarning from './OfflineWarning';
 
 class App extends Component {
   state = {
     wines: [],
+    online: true,
   };
 
   componentDidMount() {
     this.getData();
+    window.addEventListener('online', () => this.setOnlineStatus(true))
+    window.addEventListener('offline', () => this.setOnlineStatus(false))
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('online')
+    window.removeEventListener('offline')
+  }
+
+  setOnlineStatus = isOnline => this.setState({ online: isOnline })
 
   getData = () => {
     fetch('https://api-wine.herokuapp.com/api/v1/wines')
@@ -42,6 +53,7 @@ class App extends Component {
           <Route path="/articles" component={EmptyPage} />
           <Route path="/profile" component={EmptyPage} />
         </Switch>
+        {!this.state.online && <OfflineWarning />}
         <TabBar />
       </Fragment>
     );
