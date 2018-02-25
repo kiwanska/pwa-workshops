@@ -4,6 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin")
 const paths = require('./paths');
 
 module.exports = {
@@ -118,5 +120,10 @@ module.exports = {
       entry: paths.serviceWorker,
       excludes: ['_redirects'],
     }),
+    new StyleExtHtmlWebpackPlugin(),
+    new CompressionPlugin({
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      treshold: 1024,
+    })
   ],
 };
