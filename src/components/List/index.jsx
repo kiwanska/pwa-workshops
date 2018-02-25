@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazyload';
 import { array } from 'prop-types';
 import ListItem from '../ListItem';
 import Filters from '../Filters';
@@ -37,7 +38,9 @@ class List extends Component {
 
         <ul className="List">
           {visibleItems.length ? visibleItems.map(item => (
-            <ListItem key={item.id} {...item} />
+            <LazyLoad key={item.id} height={460} offset={800} overflow={true}>
+              <ListItem {...item} />
+            </LazyLoad>
           )) : (
             <li className="List__empty">No items found.</li>
           )}
