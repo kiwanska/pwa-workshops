@@ -1,0 +1,32 @@
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(50px);
+}
+
+.fade-enter.fade-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 250ms ease-in;
+}
+
+.fade-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 250ms ease-in;
+}
+
+.AnimatedWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
