@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { shape, number, array, object } from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import StarsRating from '../StarsRating';
 import BottleSvg from '../../svg-components/Bottle';
 import ItemDetail from '../ItemDetail';
@@ -15,8 +16,24 @@ const ItemShow = ({ match, items, history }) => {
     return <Redirect to="/browse" />;
   }
 
+  const annotation = `${item.color}, ${item.region}, ${item.country}`;
+
   return (
       <article className="ItemShow">
+        <Helmet
+          title={item.name}
+          meta={[
+            { name: 'description', annotation },
+            { property: 'fb:app_id', content: item.name },
+            { property: 'og:url', content: window.location.href },
+            { property: 'og:title', content: item.name },
+            { property: 'og:type', content: 'article' },
+            { property: 'og:description', content: annotation },
+            { property: 'og:image', content: item.image_url },
+            { property: 'og:image:width', content: '694' },
+            { property: 'og:image:height', content: '390' },
+          ]}
+        />
         <Nav back title={item.name} annotation={`${item.color}, ${item.region}, ${item.country}`} />
 
         <div className="ItemShow__inner">
