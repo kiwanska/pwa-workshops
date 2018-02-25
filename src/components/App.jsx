@@ -33,7 +33,7 @@ class App extends Component {
   setOnlineStatus = isOnline => this.setState({ online: isOnline })
 
   getData = () => {
-    fetch('https://api-wine.herokuapp.com/api/v1/wines')
+    fetch('https://api-wine.herokuapp.com/api/v2/wines')
       .then(res => res.json())
       .then(data => {
         this.setState({ wines: data });

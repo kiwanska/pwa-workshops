@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, number } from 'prop-types';
 import { Link } from 'react-router-dom';
 import ListRating from '../ListRating';
+import Image from '../Image';
 import BottleSvg from '../../svg-components/Bottle';
 import './style.scss';
 
@@ -14,7 +15,11 @@ class ListItem extends PureComponent {
             <section className="ListItem__main">
               <div className="ListItem__photo-container">
                 {this.props.image_url ? (
-                  <img className="ListItem__photo" src={this.props.image_url} alt={this.props.name} />
+                  <Image
+                    className="ListItem__photo"
+                    src={this.props.image_url}
+                    alt={this.props.name}
+                  />
                 ) : (
                   <BottleSvg className="ListItem__photo" />
                 )}
