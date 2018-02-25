@@ -38,7 +38,13 @@ class List extends Component {
 
         <ul className="List">
           {visibleItems.length ? visibleItems.map(item => (
-            <LazyLoad key={item.id} height={460} offset={800} overflow={true}>
+            <LazyLoad
+              key={item.id}
+              height={460}
+              offset={[-100, 0]}
+              overflow={true}
+              placeholder={<li className='lazyload-placeholder'/>}
+            >
               <ListItem {...item} />
             </LazyLoad>
           )) : (
