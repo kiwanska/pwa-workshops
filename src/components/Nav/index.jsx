@@ -17,7 +17,6 @@ class Nav extends Component {
               <img src={arrowIcon} alt="back" />
             </button>
           )}
-
           <div>
             <Helmet
               title={title}
